@@ -11,7 +11,7 @@ class SharePage extends Page {
             
 
             $.ajax({
-                url: "https://inspiration.stei.ml:8080/upload?url=" + encodeURIComponent(url) + "&user_id=1234",
+                url: "https://inspiration.stei.ml:8080/upload?url=" + encodeURIComponent(url) + "&user_id=1234&time="+window.performance.now(),
                 success: function(data){
                     let recipe = new Recipe();
                     recipe.load_recipe("#recipe-alternate",data)

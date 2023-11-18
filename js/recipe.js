@@ -21,11 +21,16 @@ class Recipe {
         $('#alternate_toggle_tab').addClass('is-active');
     }
 
+
     load_recipe(prefix, recipe_id) {
         $.getJSON("https://inspiration.stei.ml:8080/getRecipe?recipe_id=" + recipe_id, function( data ) {
-            console.log(data)
+            $(prefix + " #add_meal").click(function(){
+                $(prefix + " #add_meal").prop('disabled', false)
+                $.get("https://inspiration.stei.ml:8080/writeMealPlan?user_id=1212&meal=" + recipe_id)
+            });
             $(prefix + " #recipe_title").html(data['name']);
-            $(prefix + " #recipe_image").html(`<img src="./recipe_images/` +pad(recipe_id, 5) + `.png" />`);
+            $(prefix + " #recipe_image").html(`<img src="./recipe_images/` + pad(recipe_id, 5) + `.png" />`);
+            console.log(`<img src="./recipe_images/` + pad(recipe_id, 5) + `.png" />`)
             $(prefix + " #recipe_time").html(data['minutes'] + " min");
             let ingredients = data['ingredients'];
             ingredients = ingredients.replace(/'/g, '"');
@@ -57,10 +62,11 @@ class Recipe {
             </article>`
             }
             $(prefix + " #recipe_steps").html(step_html);
-            console.log(step_html)
           });
         
     }
+
+    
 }
 
 function pad(num, size) {

@@ -1,7 +1,7 @@
 class RecipeGrid {
     constructor() {
         $.ajax({
-            url: "https://inspiration.stei.ml:8080/getRecommendations?user_id=1234",
+            url: "https://inspiration.stei.ml:8080/getRecommendations?user_id=1212&time="+window.performance.now(),
             success: function(data){
                 let tuples = data.split("|")
                 let grid_html = "";
@@ -9,7 +9,7 @@ class RecipeGrid {
                     let k = tuples[x].substring(1,tuples[x].length-1);
                     console.log(x);
                     console.log(k);
-                    k = k.split(",");
+                    k = k.split(", ");
 
                     
                     grid_html += `<img src="./recipe_images/` +pad(k[0], 5) + `.png" 

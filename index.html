@@ -48,6 +48,7 @@
 	<script src="js/lib/jquery.min.js"></script>
 	<script src="js/page.js"></script>
 	<script src="js/index.js"></script>
+	<script src="js/meal_plan.js"></script>
 	<script>
 		if ("serviceWorker" in navigator) {
 			window.addEventListener("load", () => {
@@ -69,7 +70,13 @@
 <body>
 	
 	<div id="navbar-wrapper"></div>
-	<div id="meal-plan"></div>
+	<br>
+	<div id="meal_plan">
+		<div class="container is-fluid"><p class="title">Your Week...</p></div>
+		
+		<div id="meal-plan"></div>
+	</div>
+	<div id="recipe-detail" hidden></div>
 </body>
 
 </html>
