@@ -25,3 +25,14 @@
     grid-column: span 2;
     grid-row: span 2;
 }
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    .flex-inner  {
+        flex-direction: column;
+        .button {
+            margin: auto;
+        }
+    }
+  }
