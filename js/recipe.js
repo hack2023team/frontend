@@ -39,7 +39,7 @@ class Recipe {
             for (let i in ingredients) {
                 ingredient_html += `<tr class="is-selected">
                 <td>` + ingredients[i] + `</td>
-                <td><i class="fa-solid fa-triangle-exclamation"></i></td>
+                <td></td>
             </tr>`
             }
             $(prefix + " #recipe_ingredients").html(ingredient_html);
@@ -62,6 +62,7 @@ class Recipe {
             </article>`
             }
             $(prefix + " #recipe_steps").html(step_html);
+            window.scrollTo(0, 0); 
           });
         
     }
